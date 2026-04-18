@@ -2,6 +2,7 @@
   "name": "magicui-changelog",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@9.12.1",
   "scripts": {
     "dev": "fumadocs-mdx && next dev --turbopack",
     "build": "fumadocs-mdx && next build",
