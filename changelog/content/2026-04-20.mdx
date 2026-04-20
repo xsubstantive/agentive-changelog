@@ -1,23 +1,12 @@
 ---
-title: "Faster document search, smarter matching, and more reliable automations"
-description: "Improved document search speed, better name matching in automations, and reduced processing errors across the platform."
+title: "Faster search and more reliable automations"
+description: "Document search results appear sooner, automations fail less often, and file processing is more resilient."
 date: "2026-04-20"
-tags: [Performance, AI, Automation, Bug Fix]
+tags: [Performance, Automation, Bug Fix]
 version: "2026-04-20"
 ---
 
-## Performance
-
-- **Document search is now faster and more accurate.** Search index entries are built per page as documents finish processing, so results are available sooner and more precisely scoped.
-
-## AI & Automations
-
-- **Name matching is more accurate.** Canonical name resolution has been improved, reducing mismatches when automations try to identify entities across documents.
-- **Automations are more resilient.** Concurrency limits are now enforced more carefully, and filter shapes from earlier automation steps are correctly preserved when passed downstream — reducing silent failures in multi-step workflows.
-- **Match quality improved for structured data.** Trigram, numeric, and date postings are now precomputed per page, making structured data lookups in automations faster and less error-prone.
-
-## Bug Fixes
-
-- **Malformed filter values no longer cause automation crashes.** Invalid inputs are now rejected with a clear error instead of taking down the query.
-- **Fewer document processing failures.** Hardened handling of non-standard text encodings and oversized token batches means documents with unusual characters or large text blocks are less likely to fail during AI processing.
-
+- **Faster search results** — Document search results are now available sooner after file upload, with more precise page-level matches.
+- **More reliable automations** — Multi-step automation workflows are less likely to fail silently, especially on engagements with many workpapers running concurrently.
+- **Improved name matching** — Automations are better at identifying the same entity across different documents, reducing false mismatches.
+- **Fewer processing failures** — Documents with unusual formatting or large text blocks are less likely to fail during upload processing.
