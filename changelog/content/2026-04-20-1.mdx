@@ -1,0 +1,23 @@
+---
+title: "Export Chat to Word & Engagement Disambiguation"
+description: "Download task chat conversations as Word documents, resolve duplicate engagement identifiers, and several chat and request-table fixes."
+date: "2026-04-20"
+tags: [Feature, Bug Fix, Performance, AI, UI]
+version: "2026-04-20"
+---
+
+## New Features
+
+- **Export chat to Word**: Download the full conversation from any task chat as a `.docx` file — available in the three-dot menu in the task chat sidebar.
+- **Engagement disambiguation**: When multiple engagements share the same short identifier (e.g. `ACME-2025`), navigating to that engagement now shows a disambiguation screen listing each match with its client name and audit period. Open the right engagement directly or jump to its settings from the same screen.
+
+## Improvements
+
+- **AI analysis performance**: Workpaper AI runs now process document pages more efficiently, reducing wait times for large or complex files.
+- **FSR year detection**: Tables with ambiguous year references are classified more accurately, reducing mismatches during financial statement review.
+
+## Bug Fixes
+
+- **Chat overflow**: Long URLs and text in chat messages now wrap correctly instead of overflowing or being clipped.
+- **Requests with files counter**: The "Requests with files" count in the request table now stays accurate after uploading files individually rather than in bulk.
+
