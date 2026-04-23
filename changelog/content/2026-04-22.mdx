@@ -1,0 +1,35 @@
+---
+title: "Multi-turn chat citations, Calculate-First foot/crossfoot, OCR durability, and more"
+description: "Citation continuity across chat turns, copy controls on AI tables, session-persistent board filters, Calculate-First validation mode, durable OCR processing, and live Excel formula exports."
+date: "2026-04-22"
+tags: [Feature, Bug Fix, Performance, UI, AI, Automation]
+version: "2026-04-22"
+---
+
+## Copilot Chat
+
+- **Citation continuity across conversation turns**: when the AI cites document evidence with numbered references like `[1]` or `[2]`, those source links are now carried forward into follow-up exchanges — the AI can correctly refer back to previously cited content in multi-turn conversations without losing context
+- **Copy and download controls on AI tables**: markdown tables in AI responses now include a toolbar to copy or download tabular data directly, eliminating the need for manual selection
+- **Built-in product coaching**: ask the copilot where to find any platform feature and it will describe what it does and guide you to the right page — the full platform layout is now part of its context in every chat mode
+
+## Engagement Board
+
+- **Filters persist across engagement switches**: search queries and active filter selections now carry over when switching between engagements in the same browser session; assignee and category filters are automatically reconciled against the new engagement's valid values, with unrecognized values quietly dropped
+
+## Review
+
+- **Calculate-First mode for foot/crossfoot validation**: draw all operands on the PDF first, then apply the result to a cell — an alternative to the standard flow; footer action buttons (Save, Reset, Apply Valid/Exception) stay pinned and accessible while scrolling the calculator panel
+- **Assignment focus mode**: when the system cannot automatically link a drawn operand to its row and column in the table, the calculator collapses and a focused card guides you step-by-step to draw the row and column headers in the PDF to complete the link; the calculator re-expands once the link is resolved
+
+## Task Overview
+
+- **Task properties update live from AI chat**: status, priority, due date, assignee, and category now reflect changes made via AI chat in real time — no page refresh needed
+- **Description stays current without refresh**: the task description editor automatically remounts when AI chat updates the content externally, so edits appear immediately
+
+## Workpaper
+
+- **OCR is resilient to server interruptions**: OCR processing now runs as a durable background job — if the server restarts mid-upload, the job is automatically picked up and completed on another node; duplicate OCR requests for the same file within 5 minutes are deduplicated; files no longer get stuck in a failed state due to transient server issues
+- **Formula cells export as live Excel formulas**: cells whose value starts with `=` are written as real Excel formulas in all `.xlsx` exports — values calculate automatically when the file opens; number formatting (currency, date, number) is applied based on the column's data type
+- **Testing attribute columns are visually distinct**: columns used for testing procedures now display with a blue header background and bold centered label, always appearing as the rightmost columns within their datasource group for quick identification
+- **Automation output reliability improved**: AI-generated text in match and testing attribute automations is sanitized before saving, preventing rare write failures caused by edge-case characters in LLM outputs
+
