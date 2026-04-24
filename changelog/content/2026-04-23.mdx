@@ -1,0 +1,16 @@
+---
+title: "More reliable PDF-to-Excel conversion and OCR processing"
+description: "Large PDF files convert to Excel more reliably, and OCR retries no longer leave files in a broken state."
+date: "2026-04-23"
+tags: [Bug Fix, Performance, AI]
+version: "2026-04-23"
+---
+
+## Improvements
+
+- **PDF to Excel on large documents**: The extraction pipeline that cleans and fills converted tables now processes pages in batches. Large PDFs that previously failed mid-conversion due to size limits will complete successfully. Pages that are exceptionally large are escalated to a higher-capacity model; pages that still exceed limits are skipped gracefully rather than aborting the entire conversion.
+
+## Bug Fixes
+
+- **OCR retry reliability**: If an OCR job had to retry after partially completing, subsequent attempts could fail with a conflict error — leaving the file stuck in a failed state. Retries now cleanly replace any partial results, so files recover correctly without manual intervention.
+
