@@ -1,0 +1,22 @@
+---
+title: "Co-Audit Chat: in-chat navigation, task creation, and acceptance criteria tools"
+description: "The AI assistant can now navigate you around the platform, create tasks from chat, and manage acceptance criteria — without leaving the conversation."
+date: "2026-04-28"
+tags: [Feature, AI, Automation, UI]
+version: "2026-04-28"
+---
+
+## Features
+
+- **Co-Audit Chat** — The AI assistant has been renamed from "Copilot" to **Co-Audit Agent** across the platform, reflecting its deeper integration into the audit workflow.
+- **In-chat navigation** — Ask the Co-Audit Agent to take you anywhere on the platform and it will present a confirmation card ("Navigate to [page]?") before moving you there. Your chat history carries forward when navigating to pages with a chat area (workpaper, overview, request table, task chat), so you never lose context mid-conversation.
+- **Task search and discovery from chat** — The Co-Audit Agent can now search for tasks by name, description, or short identifier across all your engagements, and list all engagements you have access to — directly from the chat input.
+- **Create tasks from chat** — Ask the agent to create a new task and it will do so without leaving the conversation. You can create blank tasks or instantiate from a firm template (pre-configured with datasources, columns, and automations). A "Task created" card appears with **Go to task** / **Stay here** options, and your current chat carries forward to the new task.
+- **Acceptance criteria tools in workpaper chat** — The Co-Audit Agent can now list, create, edit, delete, and run acceptance criteria on a workpaper datasource directly from the task chat. Deletion requires explicit user approval. The agent will not proactively create acceptance criteria — it only acts when you ask.
+
+## Improvements
+
+- **File search is more powerful** — `searchFilePages` now supports regex patterns, page ranges, case-sensitive mode, and word/line-based context extraction. It also auto-detects total page count to prevent out-of-range searches, skips pages that error rather than treating them as matches, and returns a clean error immediately for inaccessible files.
+- **Deep analysis survives page refreshes** — Run status (running / completed / error) is now persisted server-side. If you refresh the workpaper while a deep analysis is in progress, the spinner is restored immediately and the run continues uninterrupted.
+- **Deep analysis progress card stays in sync on reconnect** — If your WebSocket reconnects mid-run, the deep analysis progress card is updated in place rather than being dropped or duplicated.
+
