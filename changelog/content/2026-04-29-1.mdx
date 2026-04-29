@@ -1,0 +1,24 @@
+---
+title: "Memo Templates, Full-Screen Chat & Workflow Builder Retirement"
+description: "Task templates now carry memo content, task chat gains a full-screen expand mode, and the workflow builder has been retired."
+date: "2026-04-29"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-04-29"
+---
+
+### New Features
+
+- **Memo fields in task templates**: Templates now capture the task memo — Purpose, Source, Scope, and Procedures — when saved. When you create a task from a template, those fields are pre-filled automatically. The template browser also shows a read-only Memo preview before you select, so you know what setup content will be applied. Conclusion is intentionally excluded (it's per-audit sign-off content, not template material).
+- **Full-screen task chat**: A new expand button in the task chat sidebar header widens the chat panel to fill the screen, giving more room for longer AI-assisted review sessions. Press ESC or click the collapse button to return to the normal layout.
+
+### Improvements
+
+- **Workflow builder retired**: The inline workflow builder has been removed from Co-Audit Chat. Workpapers are now created directly via task creation. Existing conversations that used workflow builder tools display an inline notice in place of the old tool cards.
+
+### Bug Fixes
+
+- **Comment errors now visible**: Comment submissions that failed silently (403 error) now show an error toast so you know the comment didn't go through.
+- **Bulk-review cross-datasource cells**: Fixed bulk-review and right-click review not correctly picking up cross-datasource and top-level cells.
+- **Deep analysis progress indicator**: The in-progress spinner now appears correctly when running a single-question deep analysis.
+- **Duplicate task preserves Conclusion**: Duplicating a task now correctly retains the Conclusion memo field on the copy.
+
