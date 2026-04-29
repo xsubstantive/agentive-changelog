@@ -1,0 +1,37 @@
+---
+title: "Workpaper Grid Redesign, Match File Pills & Memo Enhancements"
+description: "Cleaner row display in the workpaper grid, visual file pills on match columns, expanded memo editing, and smarter automation scoping."
+date: "2026-04-29"
+tags: [Feature, UI, Automation, Bug Fix]
+version: "2026-04-29"
+---
+
+### Workpaper Grid
+
+- **Simplified row layout**: single-child lineage paths now collapse inline — when a parent record has exactly one matched child, that child's values appear directly on the parent row, eliminating redundant rows. Multi-child fan-out continues to show individual child rows.
+- **Always-expanded rows**: parent rows are no longer collapsible. Child rows appear automatically when there is genuine fan-out (2 or more children in the same datasource), removing the need to manually expand rows to see data.
+- **File pills on match columns**: MATCH and MATCH_AGENT columns now display matched files as styled pills with a file-type icon and truncated filename. Hover to see the full name. Unmatched records show a red ✗. Contra-evidence count appears as a red badge on the pill corner.
+
+### Memo
+
+- **Editable memo fields**: Purpose, Source, Scope, Procedures, and Conclusion are now editable directly on the memo page and persist on save.
+- **Editable testing attribute descriptions**: testing attribute descriptions on the memo page can be edited inline, with hover controls to delete or link entries.
+- **Memo included in exports**: memo fields now flow through the engagement-level export.
+
+### Automation
+
+- **Unassigned files excluded from Run All**: records in match-result datasources with no parent assignment (files the match agent could not link upstream) are excluded from Run All automation passes. These records have no lineage context and previously produced unreliable downstream results.
+- **Lineage scoping tightened**: downstream MATCH datasources with no parent records in the selected lineage scope are now fully skipped, preventing unintended record recreation during lineage runs.
+
+### Cell Detail Panel
+
+- **Inline citation pills**: citation references in AI reasoning are now rendered as interactive pills rather than raw tags, including bare `[N]` tags the model occasionally produces.
+- **Match actions**: the panel now wraps match cells in an Answer section with Re-run and Unlock actions directly accessible.
+- **Inline editing commits on blur**: editors in the cell detail panel now save automatically on blur — no explicit save/cancel step required.
+
+### Bug Fixes
+
+- **Activity feed client visibility**: auditor-only TEXT fields are no longer shown to clients in the activity feed or email notifications.
+- **Memo field updates**: fixed an issue where memo field updates and their activity log entries were silently failing.
+- **Sidebar width**: fixed a crash caused by invalid persisted sidebar width values.
+
