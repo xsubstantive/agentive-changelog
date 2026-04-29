@@ -1,0 +1,19 @@
+---
+title: "Post-run automation summaries in chat, smarter engagement lookup, and match deduplication"
+description: "Chat now auto-summarizes automation results with ranked fix proposals; engagement search by name/short ID; workpaper match deduplication and source markers."
+date: "2026-04-28"
+tags: [Feature, AI, Automation, UI]
+version: "2026-04-28"
+---
+
+## AI & Chat
+
+- **Post-run automation summary**: After triggering a workpaper automation from chat, the AI now automatically follows up with a ranked summary of proposed fix groups — most impactful changes first, with representative before/after examples — and asks for your authorization to apply them. If the run failed, it explains what went wrong. This summary appears immediately after the run and persists on subsequent chat revisits.
+- **Engagement search when creating tasks**: When asking the AI to create a task from chat, you can now refer to an engagement by name, client, or short ID (e.g. "QA agentive") and the AI will filter to the right match. If nothing matches, you'll get a helpful suggestion rather than an error.
+
+## Workpaper
+
+- **Match source markers**: Cells in match agent columns now display a small superscript on the passing icon showing how each protected record was sourced — `ᶜ` for client-assigned records, `ᴹ` for manually protected or matched records, and no suffix for agent-auto-matched records. These markers are preserved when exporting to Excel.
+- **Lasso deduplication**: Manually lassoing a PDF region for a record that already exists (same file, same parent) now updates and promotes that row in place rather than inserting a duplicate row.
+- **Manual match acceptance deduplication**: Manually accepting a file or record match in a match-agent datasource now promotes any existing agent-created rows for the same file/parent combination rather than creating duplicates — ensuring your manual acceptance survives the next agent cleanup pass.
+
