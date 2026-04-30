@@ -1,0 +1,23 @@
+---
+title: "Bulk Review, Deep Analysis, and PDF Export Improvements"
+description: "Range selection now covers all row types with live counts, deep analysis spinners appear instantly, and PDF-to-Excel exports work in follow-up messages."
+date: "2026-04-29"
+tags: [Feature, Bug Fix, UI, AI, Automation]
+version: "2026-04-29"
+---
+
+## Workpaper
+
+- **Bulk accept/reject now covers all row types**: Validate, Flag, and Clear operations in the range selection panel now apply to consolidated cells (cross-datasource inline rows) and top-level non-group rows — these were previously silently excluded. The accepted/rejected/pending counts in the range panel also update in real-time as review states change from any surface (right-click menu, live sync), without requiring you to re-select the range.
+- **Deep analysis spinner appears immediately**: Starting a deep analysis run — whether a single question or a bulk run — now shows the progress spinner right away in the toast notification, instead of briefly displaying an empty circle before the run is registered server-side.
+- **Crash fixes in the workpaper editor**: Two stability issues were resolved: one that could crash the workpaper when collapsing the chat panel via ESC in certain edge cases, and one triggered by mention transforms in the text editor.
+
+## Chat
+
+- **PDF-to-Excel exports work in follow-up messages**: You can now ask the AI to export a PDF to Excel in a follow-up message, even after the original attachment has scrolled out of the latest turn. Previously the export tool was only available in the same message where the file was attached, making common workflows like "now export that to Excel" fail unexpectedly.
+- **Reorganized task chat sidebar header**: Navigation controls (back to board, chat history) and action controls (new chat, expand/collapse, more options) are now split into distinct groups in the task chat header, improving discoverability and reducing visual clutter.
+
+## Formulas
+
+- **More reliable collective formula reductions**: Formulas that aggregate multiple AI-retrieved values now handle mixed types correctly — numeric comparisons, boolean logic, and currency symbols (including `$` prefixes) are preserved across collective reductions in AI retrieval formula paths.
+
