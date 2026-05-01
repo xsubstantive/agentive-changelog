@@ -1,0 +1,27 @@
+---
+title: "Template sharing, Roll Forward improvements, and engagement error pages"
+description: "Share template previews via link, richer Roll Forward fidelity, and clearer access error pages."
+date: "2026-04-30"
+tags: [Feature, Bug Fix, UI]
+version: "2026-04-30"
+---
+
+## New Features
+
+- **Template share links**: Copy a universal link to any task template directly from the template preview header. Recipients are taken to their own board with the Add modal already open to that template's focused preview — no searching required.
+- **Template deep-link**: Boards opened with a `?templateId` URL (e.g. from a shared template link) jump straight to that template's focused preview; an error toast appears if the template is unavailable or inaccessible.
+
+## Improvements
+
+- **Roll Forward now preserves more**: rolling tasks into a new engagement carries over categories, memo fields (Purpose, Source, Scope, Procedures), and datasource column structure. Task status resets to To Do; conclusions are intentionally left blank. Engagement variables are cloned with their workpaper column links intact; re-running roll-forward removes any stale column links that were disconnected in the source since the last run.
+- **Add task modal context**: when opened from an engagement, the client and engagement are now pre-selected from the current URL even before the page context has fully loaded. Client and engagement dropdowns scroll when the list is long.
+- **Task description editing**: external changes to a task description (e.g. from AI chat) now apply in-place without reloading the editor — cursor position and focus are preserved mid-keystroke. Saving your own changes no longer briefly echoes back to the same tab.
+- **Formula columns on Collective output**: formula columns that reference a Collective retrieval column now reduce the multi-value result sensibly — numbers are summed, dates become a min–max range, booleans check that all values are truthy, and text values are deduplicated and joined.
+- **Semantic search on Excel and CSV files**: files without vector embeddings (Excel, CSV) now automatically fall back to trigram keyword search so they appear in semantic search results even before the embedding pipeline has run.
+- **Sandbox reset reliability**: resetting a sandbox engagement now performs an atomic swap — the new copy replaces the old one with the same short identifier preserved. If the clone fails, the original is left intact and the reset can be retried. The board auto-refreshes on completion.
+
+## Bug Fixes
+
+- **Engagement access errors**: navigating to an engagement you cannot access or that no longer exists now shows a descriptive error page instead of an infinite loading spinner. Auditors see guidance to ask an admin to add them; clients are told to contact their auditor. A **Go to home** button is shown in both cases.
+- **Clients page access**: non-auditor users are now correctly blocked from `/clients` routes at the middleware layer and redirected to home, rather than reaching an error state.
+
