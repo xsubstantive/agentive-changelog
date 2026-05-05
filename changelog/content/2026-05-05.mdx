@@ -1,0 +1,24 @@
+---
+title: "Client Upload Inheritance & Co-Audit Agent Pagination"
+description: "Document groups on client-visible tasks auto-enroll for client uploads; Co-Audit Agent now pages through large datasources."
+date: "2026-05-05"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-05-05"
+---
+
+### New
+
+- **Automatic client-upload enrollment**: document group datasources added to a task that is already client-visible are now automatically set up for client uploads at creation time — no need to manually toggle "Provided by: Client" afterward.
+- **Co-Audit Agent row pagination**: the agent can now page through large datasource tables (default 20 rows per call, up to 100 per request with offset support) and filter by specific columns — reducing incomplete or truncated reads on wide or high-row-count tables.
+
+### Improvements
+
+- **Unsupported file formats now download automatically**: clicking a file in the file explorer that cannot be previewed triggers a browser download instead of failing silently.
+- **Clear message for deleted files**: if a file has been removed, the viewer now shows "This file is no longer available — it may have been deleted." instead of a generic error.
+
+### Fixes
+
+- Memo auto-saves are more resilient — edge cases that previously caused silent save failures are now handled correctly.
+- Resolving multiple comments at once is faster — previously sent one request per comment, now resolved in a single call.
+- Stale chat sessions are cleaned up correctly when a chat no longer exists in the list.
+
