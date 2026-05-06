@@ -1,0 +1,18 @@
+---
+title: "Unmatched Row & Lock/Unlock Matches"
+description: "New unmatched-files summary row in the workpaper grid and a bulk lock/unlock action for confirmed matches."
+date: "2026-05-05"
+tags: [Feature, UI]
+version: "2026-05-05"
+---
+
+### New Features
+
+- **Unmatched aggregate row**: Match-agent datasources now display a pinned **Unmatched row** at the bottom of the workpaper grid whenever files remain unmatched. Each datasource column shows an amber chip with the unmatched file count — clicking it opens the cell detail panel filtered to those files. Once all files are matched, the chip turns green. Sample datasource columns are visually subdued so the row reads as a single status band rather than live data.
+
+- **Lock / Unlock Matches**: A new **Lock Matches** button in the unmatched-files panel lets auditors bulk-protect every confirmed match in a datasource with a single click. When all matches are already protected, the button switches to **Unlock Matches**. The button is hidden while unmatched files remain — a Re-run Match button is shown instead.
+
+### Improvements
+
+- Accounting Policy entries previously labeled **Rich Text** are now labeled **Custom**.
+
