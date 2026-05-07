@@ -1,0 +1,45 @@
+---
+title: "Bulk File Actions, AI Math Correction, and Deep Analysis Improvements"
+description: "Multi-select file management with bulk download, OCR re-run, and grouping transitions; automatic AI math correction in FSR; deep analysis chats auto-open on completion."
+date: "2026-05-07"
+tags: [Feature, Bug Fix, UI, AI, Automation]
+version: "2026-05-07"
+---
+
+### File Explorer
+
+- **Multi-file selection across datasources**: checkboxes appear on hover; a header checkbox selects every file across all datasource folders at once; Shift+click range-selects including across folder boundaries; folder headers show a live selected/total count (e.g., "3/8")
+- **Floating bulk action bar**: when 2 or more files are selected, a pill-style bar anchors to the bottom of the file explorer showing the selection count, a clear button, delete, and (for auditors) an **Actions** dropdown
+- **Bulk download**: download all selected files as a single zip; files from multiple datasources are organized into labeled subdirectories; a single selected file downloads directly without zipping
+- **Bulk re-run OCR**: re-run text recognition on all selected files at once from the Actions dropdown
+- **Bulk match grouping transitions**: move selected files between match groupings — Unmatched, Match Unlocked, Match Locked, or Excluded; each option shows how many of the selected files are eligible
+- **Right-click bulk context menu**: right-clicking any file in a multi-selection shows the bulk actions menu instead of the single-file menu
+- **Datasource folder collapse/expand**: each datasource folder can be independently collapsed or expanded; newly uploaded datasources auto-expand; collapsed state survives data refreshes; an upload button appears on folder header hover (auditors only)
+
+### Deep Analysis
+
+- **Chat auto-opens after completion**: when a deep analysis question finishes, the resulting chat opens automatically in the task chat sidebar — no need to navigate manually; freshly created chats appear without a page refresh
+- **Deep Analysis chats in history**: Deep Analysis chats in the chat history sidebar display a **purple bolt icon** to distinguish them from user-started conversations; the "Deep Analysis: " title prefix is stripped so only the question title is shown
+- **Faster start**: deep analysis no longer waits for embedding or classification pipelines — questions begin processing immediately after OCR completes
+
+### Financial Statement Review
+
+- **AI math correction**: the FSR pipeline now includes automatic math validation correction — for each detected table, the AI identifies total rows and columns, determines the correct operand set and sign assignments (add vs. subtract), and commits corrections only when the result achieves zero discrepancies; partial improvements are never applied; **discovery mode** also establishes operand formulas for totals that were detected by OCR but had no formula yet, improving validation coverage after the first AI run without requiring a separate follow-up pass
+
+### Workpaper
+
+- **Table row extraction completeness**: the AI extraction safety net now catches leading-row omissions in financial statement tables (e.g., combined net assets or partners' capital statements with no parent header row); both leading-row gaps and zero-row returns trigger a correction re-prompt, ensuring all values appear in the workpaper grid
+- **Reviewed cells stay highlighted during Run All**: accepted (green) and rejected (red) cells no longer flicker white or yellow mid-run when bulk automation is triggered — their visual state is maintained throughout the entire run; as an added safeguard, reviewed cells are now skipped even if the protected flag is absent
+
+### Engagement Board
+
+- **Collapsible document search results**: document search results are now organized as collapsible groups — task → datasource → file → matching pages; each level is independently collapsible; tasks that matched only on title or description appear at the top labeled **"Metadata match"** with no document evidence shown; clicking a task header navigates to the task overview; clicking a file result opens it at the matching page
+
+### Co-Audit Agent
+
+- **Column scope for `run_automation`**: the AI can now re-run a single attribute column across all rows in a datasource — the right action after updating a column's prompt and wanting every row recomputed without triggering a full workpaper re-run
+
+### Clients
+
+- **Filter banner**: when active filters hide one or more items from the client list, a banner appears showing the hidden count with a **Clear Filters** button to reset all active filters at once
+
