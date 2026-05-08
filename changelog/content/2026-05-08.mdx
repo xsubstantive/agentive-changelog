@@ -1,0 +1,24 @@
+---
+title: "Review Checklist Navigation & FSR Export Improvements"
+description: "Smarter PDF citation navigation in the review checklist, always-visible Foot/Crossfoot controls, and a redesigned FSR export cover sheet."
+date: "2026-05-08"
+tags: [Feature, Bug Fix, UI]
+version: "2026-05-08"
+---
+
+### Features
+
+- **Auto-navigate to citations on card expand**: Expanding a review checklist prompt card now automatically scrolls the PDF to the card's first citation — flagged findings are prioritized, and the lowest page number is selected first when multiple citations exist.
+- **Single-citation highlight**: Only one citation is highlighted in the PDF at a time. Clicking a different finding row moves the highlight to that citation, making it easier to trace individual findings without visual clutter.
+- **Redesigned FSR export cover sheet**: The annotated PDF export cover sheet has a new layout and typography (IBM Plex Mono tick marks), clickable rows that link directly to relevant findings, and now includes the Review Summary section.
+
+### Improvements
+
+- **Foot/Crossfoot action buttons always visible**: Save, Reset, and Apply are now rendered inline at the bottom of the calculator card with an independently scrollable operand list — the action row stays in view regardless of how long your operand list is.
+
+### Bug Fixes
+
+- **Workpaper saves target the correct task**: Fixed an issue where a queued autosave could be sent to the wrong task when navigating quickly between tasks while the memo panel stayed mounted.
+- **PDF navigation for bbox-less citations**: Clicking a citation that has a page number but no drawn bounding box now correctly navigates the PDF to that page.
+- **Cross-page operands persist on save**: Fixed an issue where cross-page Foot/Crossfoot operands were dropped when using the standalone save action.
+
