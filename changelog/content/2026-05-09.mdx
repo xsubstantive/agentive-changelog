@@ -1,0 +1,20 @@
+---
+title: "FSR cover sheet, clone file access, and automation reliability"
+description: "FSR exports now include a clickable tick-mark index cover sheet; cloned engagements restore full file access for all auditors; automation progress is more accurate through network interruptions."
+date: "2026-05-09"
+tags: [Feature, Bug Fix, UI, Automation]
+version: "2026-05-09"
+---
+
+## New Features
+
+- **FSR PDF exports now open with a structured cover sheet.** The prepended cover sheet provides a full tick-mark index in two sections — §01 lists every flagged exception with its mode, tick-mark identifier, description, and reviewer notes; §02 is a complete index organized by mode (PY → IC → F/CF). Every row is a **clickable internal link** that jumps directly to the matching page in the financial statements (and to the exact on-page location when a bounding box is available). The cover sheet also includes a masthead (client name, engagement title, reporting period) and a six-entry tick-mark legend, making the exported PDF self-contained for offline review.
+
+## Bug Fixes
+
+- **Cloned engagements: reference and library files are now accessible to all recipients.** Previously, auditors provisioned via a sandbox clone were denied download and viewer access to reference and library files because file ownership still pointed to the source engagement. Files are now correctly scoped to the destination task, and access is restored immediately for all clone recipients — including non-admin auditors.
+
+- **Engagement board: disabled board pills now show real counts and smarter guidance.** When the Requests or Tasks board is turned off in engagement settings, the pill now shows the actual task or request count instead of a hardcoded zero. If hidden tasks exist — for example, after cloning from an ALL-visibility engagement — the tooltip explicitly flags it: "This engagement has client-visible requests but the board is hidden. Enable it in engagement settings." When the count is zero, the original shorter tooltip is shown. Auditors can now tell at a glance whether there are tasks waiting on them vs. whether the board is simply unused.
+
+- **Automation progress cards are more accurate after network interruptions.** On reconnect following a pod rotation, stale failure markers in the automation progress card are immediately replaced by the correct live status if the background retry has already succeeded — no more misleading red indicators on automations that actually completed. In the AI chat run card: a **"Reconnecting…" pill** appears during brief connectivity gaps so in-progress runs look like transient buffering rather than failures; the **"Analysis skipped"** warning is suppressed while a run is still in flight and only surfaces after the run reaches a terminal state; and **Cancel** now reliably targets the correct run by its unique ID rather than the short automation ID.
+
