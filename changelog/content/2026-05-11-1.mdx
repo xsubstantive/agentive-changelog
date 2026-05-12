@@ -1,0 +1,22 @@
+---
+title: "Roll Forward Variable Handling & Engagement Variables in Chat"
+description: "Cleaner roll-forward prevents stale prior-year values, smarter dialog pre-population, and engagement variable lookup in Co-Audit Chat."
+date: "2026-05-11"
+tags: [Feature, Bug Fix, AI]
+version: "2026-05-11"
+---
+
+### Improvements
+
+- **Roll forward no longer carries stale prior-year variable values**: Engagement variables linked to workpaper columns (synced variables) are now left blank when rolling an engagement forward — they populate automatically when the destination workpaper runs. User-set variable values continue to carry forward as before.
+- **Re-running roll-forward is safer**: Re-running against an existing destination no longer overwrites synced variable values that the destination workpaper has already populated.
+- **Roll Forward dialog always pre-populates from completed engagements**: Navigating to Roll Forward from a prior-year engagement marked as Done now correctly pre-selects the client and engagement, even if engagement data is still loading.
+
+### AI Chat
+
+- **Look up engagement variables in Co-Audit Chat**: The AI can now list all engagement variable names and retrieve the current value of any specific variable (e.g. "What's the materiality threshold?"). Works in both task chat and standalone chat.
+
+### Bug Fixes
+
+- **404 pages redirect to your engagement**: Navigating to an unknown or mistyped URL no longer leaves you on a dead-end error page — authenticated users are automatically redirected to their most recent engagement.
+
