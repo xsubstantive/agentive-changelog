@@ -1,0 +1,22 @@
+---
+title: "Foot/crossfoot improvements and template fixes"
+description: "F/CF calculator stays uninterrupted, tick marks now track direction separately, and task templates no longer require a description."
+date: "2026-05-20"
+tags: [Bug Fix, UI]
+version: "2026-05-20"
+---
+
+## Improvements
+
+- **Add Value stays accessible during operand assignment**: When building a foot/crossfoot calculation by lassoing numbers one at a time, the Add Value button now remains visible even while a previous number is waiting for its row and column to be identified. You can keep adding numbers to the calculation without the button disappearing mid-flow.
+
+- **Row footing and column crossfooting are tracked as separate annotations**: Tick marks for row footing and column crossfooting on the same number now coexist independently. Placing a column crossfooting no longer silently upgrades an existing row footing to Confirmed — both marks are preserved and reflect their correct direction.
+
+## Bug Fixes
+
+- **Task template description is now optional**: The Save button in the Save-as-Template dialog is no longer disabled when the description field is empty. Templates can be saved without a description.
+
+- **Template save errors are now specific**: When saving a template fails, the dialog now displays the actual reason (for example, if the source task is no longer available) instead of a generic "Please try again" message.
+
+- **Deleted-chat links no longer cause errors**: Opening a link to a chat that was deleted, or restoring a session where the last active chat no longer exists, no longer produces an unexpected error.
+
