@@ -1,0 +1,38 @@
+---
+title: "Document tab, redesigned match panel, and run confirmation dialog"
+description: "A new Document tab for the file viewer, redesigned match panel with direction toggle and Move/Copy operations, and a run confirmation dialog for all automation actions."
+date: "2026-05-22"
+tags: [Feature, UI, AI, Automation, Bug Fix]
+version: "2026-05-22"
+---
+
+### New
+
+- **Document tab in the workpaper file viewer**: When a file is open in the viewer, a new Document tab shows all the file's details in one place — its classification (editable inline), which match group it belongs to (Unmatched, Match Unlocked, Match Locked, or Excluded, all changeable from a dropdown), related page ranges from the same document, the AI's notes and reasoning, and a per-file activity history.
+
+- **Match section inline in the cell detail panel**: When you click a match cell, the file picker now appears directly in the cell detail panel below the grid, split into "Matched" (files already linked to this row) and "Other" (remaining files in the datasource). No need to switch between panels to manage a match.
+
+- **Direction toggle in the match panel**: A toggle in the match panel header lets you flip between two perspectives: "files view" shows which documents you can match to the focused row; "rows view" shows all rows in the datasource grouped by whether they're already matched to the file you're currently viewing in the viewer.
+
+- **Move and Copy for matched records**: Right-clicking a match now offers explicit Move and Copy choices. **Move** re-parents the match to a new row and removes it from the original — a confirmation dialog shows you the full count of records that will be affected before you commit. **Copy** adds a second match at the new location while leaving the original intact.
+
+- **Run AI on empty match cells**: Right-clicking an empty match cell now shows a Run option alongside the manual file picker, letting you ask the AI to attempt a match automatically.
+
+- **Run confirmation dialog**: Every Run button now opens a confirmation dialog showing a per-document-group breakdown of what will be run — matches, custom column cells, and testing attributes. You choose between **Run** (fill only empty results) and **Re-run** (overwrite all non-locked, non-reviewed results). On the very first run of a fresh workpaper, when nothing has been filled yet, the dialog collapses to a single Run button with no breakdown.
+
+### Improvements
+
+- **Tick marks can be re-applied after removal**: Removing a tick mark and then re-applying the same one to the same number no longer causes a conflict. The removed annotation is preserved in the history rather than being permanently deleted.
+
+- **Client setup error message**: If a new client's practice resources don't finish setting up within five minutes, the loading spinner now transitions to an error message directing you to contact support instead of spinning indefinitely.
+
+### Bug Fixes
+
+- **Workpaper grid cleanup after re-run**: After running all automations, empty placeholder rows no longer remain visible in the grid until the page is reloaded — they clear automatically.
+
+- **"Fix with Co-Audit" no longer splits the chat panel**: Opening "Fix with Co-Audit" from the workpaper no longer causes recent chat history to appear alongside the active conversation, splitting the panel in two.
+
+- **Sandbox engagements don't generate email notifications**: Activity summary emails and @mention notifications are no longer sent for sandbox (practice) engagements.
+
+- **Partial match Move is clearly reported**: If a match Move creates the new association successfully but cannot remove the original, you now see a specific message explaining what happened and how to finish the move manually.
+
