@@ -1,0 +1,44 @@
+---
+title: "AI-built deliverables, smarter template matching, and workpaper grid improvements"
+description: "The Co-Audit agent can now produce downloadable Excel, Word, and PDF files directly in chat; template reconciliation is faster and warns about client upload ownership; matched evidence rows can be moved or copied with a cascade preview."
+date: "2026-05-24"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-05-24"
+---
+
+## New Features
+
+- **AI-produced files in task chat.** The Co-Audit agent can now build custom Excel spreadsheets, Word documents, and PDFs directly in the chat — not just describe what to do, but hand you the finished file. Ask for things like "build a loan schedule with a separate sheet per vendor" or "fill this form from our workpaper data" and a **colored download chip** appears at the end of the response. The agent can also read evidence and reference files already attached to the task when building its output.
+
+- **Move and Copy matched evidence.** Right-clicking a matched row in the workpaper now offers a **Move** or **Copy** option under "Move to":
+  - **Move** — removes the original match and creates it under the chosen parent row, with a preview of all downstream records that will be affected before you confirm.
+  - **Copy** — adds a second association without touching the original, useful when the same evidence belongs under multiple parents.
+
+- **Run on empty match cells.** Right-clicking an empty match column cell on a parent row now shows a **Run** option alongside "Pick document," so you can ask the agent to fill the match automatically rather than picking a file manually.
+
+## Improvements
+
+- **Template reconciliation is faster and clearer.** When applying a template whose document groups share names with groups already in your engagement, the reconciliation screen now:
+  - Lets you type a custom name when creating a new group (formula references update automatically).
+  - Shows a **"Client request · ID"** chip next to any reuse option that's already shared with clients, and warns you that client uploads will continue going to the original task — so you know the upload ownership consequence before confirming.
+  - **Skips the screen entirely** when there are no naming conflicts, jumping straight to a one-click Apply summary.
+  - Highlights inline when two rows would resolve to the same name.
+
+- **First-run modal is simpler.** When you open the Run dialog on a scope that has never been run, you now see just the scope description and a single Run button. The breakdown table and duplicate Re-run button only appear after something in the scope has been run.
+
+- **Remove Match is consistent everywhere.** The consequence preview — showing how many downstream matched rows will be removed — now appears regardless of whether you use the grid right-click menu, the cell-detail panel, or the document-detail panel.
+
+- **Document group picker shows more context.** The "Use Existing Document Group" panel now displays a **file count badge** on each group row, and task labels include the short task ID for faster scanning.
+
+- **AI artifact sessions start faster.** The Co-Audit agent's file-building sessions now reach a ready state noticeably faster than before.
+
+- **Better AI model for EU users.** The default AI model for auditors in the EU region has been upgraded to match the model used in the US.
+
+## Bug Fixes
+
+- **Co-Audit sidebar no longer splits in two.** Opening "Fix with Co-Audit" from the Problems tab previously rendered a duplicate strip of recent chats below the chat panel. The chat panel now takes the full sidebar height as expected.
+
+- **Download chip appears once on saved chats.** Reopening a chat that contained an AI-produced file used to show the download chip twice. It now appears exactly once.
+
+- **Template column setting for "run on no match" is now preserved.** A per-column setting that controls whether the agent runs when no evidence match is found was being silently dropped when saving or applying templates. It now round-trips correctly.
+
