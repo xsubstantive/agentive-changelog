@@ -1,0 +1,29 @@
+---
+title: "EU number formatting, smarter task routing, and workpaper polish"
+description: "European number formats now work end-to-end, template-created tasks land on the right page, and the Problems panel is cleaner and more accurate."
+date: "2026-05-27"
+tags: [Feature, Bug Fix, UI]
+version: "2026-05-27"
+---
+
+## EU Number Formatting
+
+- **European-formatted numbers are now fully supported across math validation and financial statement review.** Firms using commas as decimal separators and periods as thousands separators (e.g. "1.234,56") will see numbers parse, foot, and display correctly throughout workpapers and the FSR review sidebar — previously these were misread or shown in US format.
+- Multi-group European integers like "1.234.567" are now correctly recognized as whole numbers rather than being truncated.
+
+## Task Creation
+
+- **After creating a task from a template, you're taken directly to the most relevant page** — the Workpaper for templates that include data sources, the Review page for document-review tasks, and the Overview for everything else. Previously, template-based tasks would sometimes drop you on the wrong page.
+- A one-time **"New: Reuse groups in templates"** tip appears the first time you reach the template reconciliation screen, with a matching tip the first time you use **"Use Existing"** in the workflow sidebar. Both dismiss with a single "Got it" click.
+
+## Workpaper
+
+- **The Problems panel no longer shows a misleading entry before analysis has been run.** Every new workpaper used to show a permanent informational row prompting you to run analysis — even when nothing was actually wrong. That entry is removed; the panel now only surfaces real issues.
+- The Problems panel is visually cleaner: **Fix with Co-Audit** buttons on category rows now appear on hover (matching the per-row behavior), and the severity count badges next to category names have been removed.
+- **Automations run on shared document groups now show their progress and results correctly in the chat.** Previously, the progress card could appear empty and results might never arrive in the chat when a data source was shared across tasks.
+
+## PDF Viewer
+
+- **The annotation drawing tool remembers your last-used color between sessions.** The default color is now grey (previously red), and your chosen color is restored the next time you open a file.
+- The FSR sidebar now shows "No findings yet" when no results are present, more accurately reflecting that running a test will produce output.
+
