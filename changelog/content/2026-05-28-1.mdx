@@ -1,0 +1,24 @@
+---
+title: "Faster template apply, smarter email invites, and stability fixes"
+description: "Templates now create tasks instantly, email invites accept any paste format, and several crashes across the workpaper and chat surfaces have been resolved."
+date: "2026-05-28"
+tags: [Feature, Bug Fix, UI]
+version: "2026-05-28"
+---
+
+## Improvements
+
+- **Applying a template is now instant.** The intermediate document group mapping screen has been removed from the template apply flow. Selecting a template and clicking Apply creates the task immediately — no extra confirmation step required.
+
+- **Email invites accept any paste format.** When adding team members or clients to an engagement, you can now paste addresses in any common format: space-separated, comma-separated, one per line, or directly from Outlook ("First Last \<email@firm.com\>"). Invalid addresses are flagged inline before the invite is sent, so you can fix them on the spot instead of hitting a generic error after the fact.
+
+- **Foot/Crossfoot calculator lists operands in document order.** Values in the F/CF calculator are now shown in the order they appear in the PDF — page by page, top to bottom — making it straightforward to trace each number back to its location in the source document.
+
+## Bug Fixes
+
+- **"Apply Valid" / "Apply Exception" no longer fails after a tick mark is removed.** Re-applying a footing result to a number that previously had its tick mark removed now succeeds as expected, instead of showing a "Failed to finalize calculation" error.
+
+- **AI chat panel no longer goes blank during streaming.** An issue that caused the chat panel to crash and stop rendering while a response was being generated has been fixed.
+
+- **Workpaper page is stable on long-running engagements.** An issue causing the workpaper page to crash on engagements with a long activity history has been resolved.
+
