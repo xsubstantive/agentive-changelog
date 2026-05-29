@@ -1,0 +1,18 @@
+---
+title: "Shared document groups: automation and match fixes"
+description: "Automations, match operations, and live updates now work correctly when document groups are shared across workpapers."
+date: "2026-05-28"
+tags: [Bug Fix, Automation, AI]
+version: "2026-05-28"
+---
+
+### Bug Fixes
+
+- **Automations now run correctly on imported document groups.** When a document group is shared with your workpaper from another workpaper in the engagement, running automations — including testing attributes and run-all — now operates on your workpaper's data. Previously, these operations could silently target the original owning workpaper and produce no output.
+
+- **Workpaper grid no longer shows blank rows after automation runs.** If your workpaper uses an imported document group, running a full automation could cause rows to disappear from the grid. This is now fixed.
+
+- **Match accept operations apply to the correct workpaper.** Accepting file or record matches on a shared document group now correctly records results under the workpaper you are working in, not the workpaper that owns the document group.
+
+- **Live updates now refresh the correct workpaper.** When an automation clears or updates a shared document group, the refresh now appears on the workpaper you are viewing rather than the owning workpaper.
+
