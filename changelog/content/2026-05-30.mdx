@@ -1,0 +1,20 @@
+---
+title: "Workpaper & Chat Reliability Fixes"
+description: "Restored sum calculator display in the cell panel, fixed match automations, and improved AI chat stability after interrupted sessions."
+date: "2026-05-30"
+tags: [Bug Fix, AI, Automation]
+version: "2026-05-30"
+---
+
+### Bug Fixes
+
+- **Sum calculator restored in the cell detail panel**: When working with cells that sum values across a document, the yellow Σ total display and calculator had disappeared from the right-hand panel. It's now back — clicking into a sum cell shows your running total, and you can adjust the sign of individual components or remove them directly from the panel.
+
+- **Match automations running again**: On some workpapers, the automated matching process was silently stopping before completing. This is now resolved — match columns run to completion as expected.
+
+- **AI chat handles interrupted sessions more reliably**: Two separate issues could cause the AI chat to stop responding — one when a tool action was cancelled mid-run, and one when a session was interrupted before completing. Both are fixed; resuming a chat after an interruption now works correctly.
+
+### Removed
+
+- **"Create by Procedure" is no longer available**: The task creation flow that accepted a procedures document and generated a suggested workflow from it has been removed. Tasks can still be created from templates, from scratch, or via the Financial Statement Review flow.
+
