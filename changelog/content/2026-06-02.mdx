@@ -1,0 +1,40 @@
+---
+title: "Fiscal Year Auto-Detection & Review Sidebar Improvements"
+description: "Prior Year Consistency now auto-detects the fiscal year from uploaded documents, IC groupings are more accurate, and several review workflow fixes."
+date: "2026-06-02"
+tags: [Feature, Bug Fix, UI, AI]
+version: "2026-06-02"
+---
+
+## New
+
+- **Automatic fiscal year detection**: When you run Prior Year Consistency, the pipeline now reads the cover pages of your uploaded CY and PY documents to identify the correct fiscal year automatically. This means PY Consistency runs against the right year even when the engagement's audit period hasn't been configured. If the documents don't contain a clear dating phrase, the pipeline falls back to the engagement period as before — and replaces the auto-detected period whenever you swap out the uploaded files.
+
+- **Editable "Current year end" date in Prior Year sidebar**: The fiscal year-end date used for PY Consistency is now visible and editable directly at the top of the Prior Year sidebar. You can correct the auto-detected date when needed. Clearing it re-enables automatic detection on the next run, and an info tooltip explains what the date controls.
+
+- **Combined IC + PY tick marks in exported PDFs**: When a number carries both an Internal Consistency and a Prior Year tick mark, the exported PDF now shows them as a single readable label (e.g., "PY-7·IC-3") rather than two overlapping marks that hide each other.
+
+## Improved
+
+- **IC groupings are more precise**: Numbers are now grouped only when they represent the same financial fact — same concept, same period, and same scope. Figures that appear in adjacent comparative columns (the same line item in different years) are correctly kept as separate items rather than surfaced as potential tie-outs.
+
+- **Empty subsections show "None" instead of blank headers**: In the IC, Prior Year, and F/CF sidebars, subsections with no items now display a muted "None" label. It's immediately clear that the section has been reviewed and found clean, rather than leaving an empty collapsible header that appears to have content.
+
+- **Shared document group confirmation is now inline**: Replacing a shared document group with another now shows a single inline summary of what will change — including which task will handle client uploads going forward — without opening a separate modal.
+
+- **Export error files include clear next steps**: When a multi-file PDF export fails for one or more files, the error file inside the downloaded ZIP now opens with plain instructions for what to do, including a ready-to-copy message you can send directly to support.
+
+## Fixed
+
+- **"Check all" and "Flag all" buttons in IC and PY sidebars now work**: Clicking **Check** on the Consistent bucket or **Flag** on the Flagged bucket was silently doing nothing. Both buttons now correctly approve and confirm the relevant suggested items.
+
+- **Prior Year loading indicator no longer spins indefinitely**: After running or re-running Prior Year Consistency, the loading spinner in the sidebar clears as expected once the run finishes.
+
+- **PDF export correctly reports partial failures**: When exporting multiple annotated PDFs and some files fail, the notification now reads "Export completed with errors" (or "Export failed" if all files failed) instead of incorrectly showing a success message.
+
+- **"Run everything" correctly identifies columns that have never been run**: The run modal now properly recognizes new custom columns that haven't been executed yet, so the option to fill empty cells is available as expected.
+
+- **Activity summary emails deliver reliably**: Fixed a bug where certain removed tasks could cause the daily activity summary email to fail to send.
+
+- **Shared document group data stays isolated to your task**: In workpapers using shared document groups, certain data panels now correctly show only the current task's entries rather than mixing in entries from other tasks that share the same group.
+
