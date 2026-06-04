@@ -1,0 +1,15 @@
+---
+title: "Citation navigation reliability improvements"
+description: "Fixes for cross-file citation clicks and unresolved citation pills in workpaper cells."
+date: "2026-06-04"
+tags: [Bug Fix, UI]
+---
+
+## Bug Fixes
+
+- **Clicking a citation that references a different file now works correctly.** If you were viewing one document and clicked a citation pill pointing to a different source file, the cited document failed to open. This is now fixed — clicking any citation pill switches to and highlights the correct source document, regardless of which file you were previously viewing. This applies to Word and Excel documents in addition to PDFs.
+
+- **Citation pills in certain workpaper cells now resolve correctly.** Some citations in workpaper cells appeared as broken, unresolved references rather than clickable pills. These now correctly display as clickable pills and navigate to the cited page in the source document when clicked.
+
+- **Agentive-generated Excel workbooks are now consistently recognized by the Excel add-in.** Workbooks produced by Agentive's AI automation are now always compatible with the Agentive Excel add-in when opened on your desktop, even if no citations were added.
+
