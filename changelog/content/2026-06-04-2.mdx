@@ -1,0 +1,32 @@
+---
+title: "Manual annotation menu and math footing fixes"
+description: "Lasso-drawn annotations now surface the full tick mark menu; footing calculator receives sign persistence, number parsing, and operand ordering fixes."
+date: "2026-06-04"
+tags: [Feature, Bug Fix, UI]
+version: "2026-06-04"
+---
+
+## Manual Annotation Tick Mark Controls
+
+**Clicking a lasso-drawn annotation on the PDF** now opens the same context menu used by auto-detected numbers. From this menu you can apply tick marks, toggle between Suggested and Confirmed, remove an association, or delete the annotation entirely — the same controls, in the same place, for both detected and hand-drawn annotations.
+
+## Math Footing Calculator
+
+**Sign (+/−) changes now stick.** Toggling a number's polarity in the footing panel would revert to the original sign on the next load. The toggle is now saved correctly.
+
+**Pressing Escape cancels a Stated Result edit.** Previously, pressing Escape while typing in the Stated Result field committed the in-progress value instead of discarding it. Escape now restores the original value, as expected.
+
+**Stated Result is editable in automatic footing mode.** Auditors can now correct an OCR-read Stated Result — such as a misread sign — when working in automatic mode, not only in manual mode.
+
+**European-formatted numbers calculate correctly in manual footing.** Numbers using dots as thousand separators (for example, TEUR format `153.063`) were misread as decimal values, producing incorrect sums. Manual footing now interprets these numbers the same way automatic mode does.
+
+**Operand order follows document reading order.** Numbers in the footing panel now appear left-to-right within each row. Column crossfootings sort right-to-left across the page, matching the direction auditors naturally work.
+
+**Unreadable OCR values are clearly flagged.** When document processing cannot interpret a number, the footing panel now shows an amber "Enter value" prompt instead of silently defaulting to zero — making it obvious where manual input is required.
+
+**Validation errors in the footing panel are now visible.** Error messages (such as "Please enter a valid number") now appear as on-screen alerts. They were previously silent.
+
+## Reliability
+
+**Large multi-sheet Excel files now process successfully.** Files with many sheets and a high volume of cells were previously causing the processing job to exhaust available memory, failing the entire upload. These files now complete processing without issue.
+
