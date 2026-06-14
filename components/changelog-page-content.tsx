@@ -157,14 +157,20 @@ export function ChangelogPageContent({ page }: { page: number }) {
       <Header />
 
       <main className="mx-auto max-w-6xl px-6 pt-32 lg:px-10">
-        <section className="mb-12 max-w-3xl">
-          <p className="text-lg leading-8 text-muted-foreground text-balance">
-            Product updates and release notes for Punchcard, including CoAudit,
-            audit workpaper automation, PBC request workflows, sampling reports,
-            Excel imports, authentication, and platform reliability.
+        <section className="mb-14 max-w-4xl">
+          <div className="mb-4 text-sm font-medium text-muted-foreground">
+            Changelog
+          </div>
+          <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-balance sm:text-5xl">
+            Punchcard product updates
+          </h1>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-muted-foreground text-balance">
+            Release notes for Punchcard's audit AI platform, including CoAudit,
+            workpaper automation, PBC request workflows, sampling reports, Excel
+            imports, authentication, and platform reliability.
           </p>
           {page > 1 && (
-            <p className="mt-4 text-sm font-medium text-muted-foreground">
+            <p className="mt-5 text-sm font-medium text-muted-foreground">
               Page {page}
             </p>
           )}
@@ -196,7 +202,7 @@ export function ChangelogPageContent({ page }: { page: number }) {
                       </time>
                       <div
                         aria-hidden="true"
-                        className="absolute right-[-2rem] top-1/2 z-20 hidden size-3 translate-x-1/2 -translate-y-1/2 rounded-full bg-muted-foreground/45 md:block"
+                        className="absolute right-[-2rem] top-1/2 z-30 hidden size-3 translate-x-1/2 -translate-y-1/2 rounded-full bg-[oklch(0.62_0_0)] md:block dark:bg-[oklch(0.64_0_0)]"
                       />
                     </div>
                   </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
+import { ArrowLeft } from "lucide-react"
 import { CopyEntryLink } from "@/components/copy-entry-link"
 import Footer from "@/components/footer"
 import Header from "@/components/header"
@@ -107,9 +108,10 @@ export default async function ChangelogEntryPage({ params }: PageProps) {
         <div className="mb-10">
           <Link
             href="/"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
-            Changelog
+            <ArrowLeft aria-hidden="true" className="size-4" />
+            Back to changelog
           </Link>
         </div>
 
@@ -130,7 +132,7 @@ export default async function ChangelogEntryPage({ params }: PageProps) {
                 </time>
                 <div
                   aria-hidden="true"
-                  className="absolute right-[-2rem] top-1/2 z-20 hidden size-3 translate-x-1/2 -translate-y-1/2 rounded-full bg-muted-foreground/45 md:block"
+                  className="absolute right-[-2rem] top-1/2 z-30 hidden size-3 translate-x-1/2 -translate-y-1/2 rounded-full bg-[oklch(0.62_0_0)] md:block dark:bg-[oklch(0.64_0_0)]"
                 />
               </div>
             </div>
